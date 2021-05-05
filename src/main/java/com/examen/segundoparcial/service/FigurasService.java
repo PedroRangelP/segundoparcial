@@ -12,6 +12,6 @@ public class FigurasService {
     }
 
     public double calcularArea(Circulo circulo){
-        return Math.pow(2,circulo.getRadio())*Math.PI;
+        return Math.pow(circulo.getRadio(), 2)*Math.PI;
     }
 }
