@@ -92,4 +92,15 @@ public class SegundoparcialIntegrationTests extends SegundoparcialApplicationTes
         mockMvc.perform(post("/v1/cuadrado/area").contentType(MediaType.APPLICATION_JSON).content(json)).andExpect(status().isOk()).andExpect(jsonPath("$").value(36.0));
     }
 
+    @Test
+    public void controlDiviErrorTest() throws Exception{
+        operacionRequest = new OperacionRequest();
+        operacionRequest.setA(28.2);
+        operacionRequest.setB(0);
+        mapper = new ObjectMapper();
+        ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(operacionRequest);
+        mockMvc.perform(post("/v1/division").contentType(MediaType.APPLICATION_JSON).content(json)).andExpect(status().is5xxServerError());
+    }
+
 }

@@ -34,7 +34,7 @@ public class SegundoparcialUnitTests extends SegundoparcialApplicationTests{
     }
 
     @Test
-    public void diviTest(){
+    public void diviTest() throws Exception{
         assertEquals(14.1, operacionesService.division(28.2, 2.0));
     }
 
